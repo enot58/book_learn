@@ -2,8 +2,8 @@ import {React, useState} from 'react';
 import {FaStar} from "react-icons/fa";
 // Общий компонент для звёзд
 
-const Star = ({ selected = false }) => (
-    <FaStar color={selected ? "red" : "grey"} />
+const Star = ({ selected = false, onSelect = f => f }) => (
+    <FaStar onClick={onSelect} color={selected ? "red" : "grey"} />
 );
 
 const createArray = length => [...Array(length)];
