@@ -6,7 +6,6 @@ function App() {
   return (
     <div className="App">
       <StarRating/>
-      <h1>df</h1>
     </div>
   );
 }

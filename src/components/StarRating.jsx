@@ -1,15 +1,22 @@
-import React from 'react';
+import {React, useState} from 'react';
 import {FaStar} from "react-icons/fa";
 // Общий компонент для звёзд
 
-const StarRating = () => {
-    return [
-        <FaStar color="red"/>,
-        <FaStar color="red"/>,
-        <FaStar color="red"/>,
-        <FaStar color="grey"/>,
-        <FaStar color="grey"/>
-    ]
+const Star = ({ selected = false }) => (
+    <FaStar color={selected ? "red" : "grey"} />
+);
+
+const createArray = length => [...Array(length)];
+
+const StarRating = ({totalStars = 5}) => {
+
+    const [selectedStars] = useState(3)
+ 
+    return (
+        <>
+            {createArray(totalStars).map((n, i) => <Star key = {i} selected = {selectedStars > i} />)}
+        </>
+    )
 };
 
 export default StarRating;
