@@ -8,14 +8,18 @@ const Star = ({ selected = false, onSelect = f => f }) => (
 
 const createArray = length => [...Array(length)];
 
-const StarRating = ({totalStars = 5}) => {
+const StarRating = ({totalStars = 5, style = {}}) => {
 
-    const [selectedStars] = useState(3)
+    const [selectedStars, setSelectedStars] = useState(0)
  
     return (
-        <>
-            {createArray(totalStars).map((n, i) => <Star key = {i} selected = {selectedStars > i} />)}
-        </>
+        <div style={{padding:"5px", ...style}} {...props}>
+            {createArray(totalStars).map((n, i) => <Star key = {i} 
+            selected = {selectedStars > i} 
+            onSelect={() => setSelectedStars(i + 1)}
+            />)}
+            <p>Выбрано {selectedStars} из {totalStars}</p>
+        </div>
     )
 };
 

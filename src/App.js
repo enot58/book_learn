@@ -1,11 +1,15 @@
-import {React} from "react"
+import {React, useState} from "react"
 import StarRating from "./components/StarRating";
-
+import colorData from "./color-data.json"
+import ColorLIst from "./components/ColorLIst";
 
 function App() {
+
+  const [colors] = useState(colorData)
+
   return (
     <div className="App">
-      <StarRating/>
+      <ColorLIst colors = {colors} />
     </div>
   );
 }
