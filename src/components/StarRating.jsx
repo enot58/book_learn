@@ -13,7 +13,7 @@ const StarRating = ({totalStars = 5, style = {}}) => {
     const [selectedStars, setSelectedStars] = useState(0)
  
     return (
-        <div style={{padding:"5px", ...style}} {...props}>
+        <div style={{padding:"5px", ...style}}>
             {createArray(totalStars).map((n, i) => <Star key = {i} 
             selected = {selectedStars > i} 
             onSelect={() => setSelectedStars(i + 1)}
