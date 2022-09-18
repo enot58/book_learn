@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <ColorLIst colors = {colors} 
         onRemoveColor = {
-          removeColor(id)
+          removeColor
         }
       />
     </div>
