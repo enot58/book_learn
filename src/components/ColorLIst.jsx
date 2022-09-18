@@ -1,7 +1,7 @@
 import React from 'react'
 import Color from './Color'
 
-function ColorLIst({ colors = [], onRemoveColor = f => f }) {
+function ColorLIst({ colors = [], onRemoveColor = f => f, onRateColor = f => f }) {
 
     if (!colors.length) {
         return <div>Цвета не обнаружены</div>
@@ -10,7 +10,7 @@ function ColorLIst({ colors = [], onRemoveColor = f => f }) {
     return (
         <div>
             {
-                colors.map((color) => <Color key={color.id} {...color} onRemove={onRemoveColor}/>)
+                colors.map((color) => <Color key={color.id} {...color} onRemove={onRemoveColor} onRate ={onRateColor}/>)
             }
         </div>
     )

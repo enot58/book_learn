@@ -13,13 +13,26 @@ function App() {
       const newColors = colors.filter(color => color.id !== id);
       setColors(newColors)
     
-  } 
+  }
+  
+  const rateColor = (id, rating) => {
+    
+    const newColors = colors.map(color => 
+      color.id === id
+      ? {...color, rating}
+      : color
+    )
+    setColors(newColors)
+  }
 
   return (
     <div className="App">
       <ColorLIst colors = {colors} 
         onRemoveColor = {
           removeColor
+        }
+        onRateColor ={
+          rateColor
         }
       />
     </div>
