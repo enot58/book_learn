@@ -8,7 +8,7 @@ const Star = ({ selected = false, onSelect = f => f }) => (
 
 const createArray = length => [...Array(length)];
 
-const StarRating = ({totalStars = 5, style = {}}) => {
+const StarRating = ({totalStars = 5, style = {}, onRate = f => f}) => {
 
     const [selectedStars, setSelectedStars] = useState(0)
  
@@ -16,7 +16,7 @@ const StarRating = ({totalStars = 5, style = {}}) => {
         <div style={{padding:"5px", ...style}}>
             {createArray(totalStars).map((n, i) => <Star key = {i} 
             selected = {selectedStars > i} 
-            onSelect={() => setSelectedStars(i + 1)}
+            onSelect={() => onRate(i + 1)}
             />)}
             <p>Выбрано {selectedStars} из {totalStars}</p>
         </div>
