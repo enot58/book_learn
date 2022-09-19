@@ -2,6 +2,7 @@ import {React, useState} from "react"
 import StarRating from "./components/StarRating";
 import colorData from "./color-data.json"
 import ColorLIst from "./components/ColorLIst";
+import AddColorForm from "./components/AddColorForm";
 
 // Состояние хранится на верху
 
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <div className="App">
+      <AddColorForm />
       <ColorLIst colors = {colors} 
         onRemoveColor = {
           removeColor
