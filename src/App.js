@@ -3,6 +3,8 @@ import StarRating from "./components/StarRating";
 import colorData from "./color-data.json"
 import ColorLIst from "./components/ColorLIst";
 import AddColorForm from "./components/AddColorForm";
+import { v4 as uuidv4 } from 'uuid';
+
 
 // Состояние хранится на верху
 
@@ -26,10 +28,24 @@ function App() {
     setColors(newColors)
   }
 
+  const addNewColor = (title, color) => {
+    const newColors = [
+      ...colors,
+      {
+        id: uuidv4(),
+        rating: 0,
+        title,
+        color
+      }
+    ];
+    console.log(newColors);
+    setColors(newColors)
+  }
+
   return (
     <div className="App">
-      <AddColorForm />
-      
+      <AddColorForm onNewColor={addNewColor} />
+       
       <ColorLIst colors = {colors} 
         onRemoveColor = {
           removeColor
