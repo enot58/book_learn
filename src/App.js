@@ -9,25 +9,48 @@ import Checkbox from "./components/Checkbox";
 
 function App() {
 
-  const [val, set] = useState("")
-  const [phrase, setPhrase] = useState("example");
-  
-  const createPhrase = () => {
-    setPhrase(val);
-    set("");
+  // useEffect(() => {
+  //   fetch(`https://api.github.com/users/moonhighway`)
+  //   .then(response => response.json())
+  //   .then(console.log)
+  //   .catch(console.error);
+  // }, [])
+  // или
+  async function requestGithubUser(githubLogin) {
+    try {
+      const response = await fetch(
+        `https://api.github.com/users/${githubLogin}`
+        );
+        const userData = await response.json();
+        console.log(userData);
+    } catch(err) {
+       console.error(err) 
+    }
   }
 
-  useEffect(() => {
-    console.log(`typing "${val}"`);
-  }, [val])
+  
 
-  useEffect(() => {
-    console.log(`saved phase: "${phrase}"`);
-  }, [phrase])
+  // const [val, set] = useState("")
+  // const [phrase, setPhrase] = useState("example");
+  
+  // const createPhrase = () => {
+  //   setPhrase(val);
+  //   set("");
+  // }
 
+  // useEffect(() => {
+  //   console.log(`typing "${val}"`);
+  // }, [val])
 
+  // useEffect(() => {
+  //   console.log(`saved phase: "${phrase}"`);
+  // }, [phrase])
 
-
+  // useEffect(() => {
+  //   console.log("either val or phrase has changed");
+  //   }, [val, phrase]);
+  
+   
   // **** С добавлением useContext этот код больше не нужен****
   // const [colors, setColors] = useState(colorData)
 
@@ -63,17 +86,17 @@ function App() {
 
   return (
 
-    <>
-      <label>Favorit phrase:</label>
+    // <>
+    //   <label>Favorit phrase:</label>
 
-      <input 
-        value={val}
-        placeholder={phrase}
-        onChange={e => set(e.target.value)}
-      />
+    //   <input 
+    //     value={val}
+    //     placeholder={phrase}
+    //     onChange={e => set(e.target.value)}
+    //   />
 
-      <button onClick={createPhrase}>Send</button>
-    </>
+    //   <button onClick={createPhrase}>Send</button>
+    // </>
 
     // **** С добавлением useContext этот код больше не нужен****
 
@@ -90,13 +113,13 @@ function App() {
     //   />
     // </div>
 
-    //<>
-      /* < Checkbox />
+    <>
+      < Checkbox />
       < AddColorForm />
-      < ColorLIst /> */
+      < ColorLIst /> 
 
 
-    //</>
+    </>
 
 
 

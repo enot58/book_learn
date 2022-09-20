@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { ColorContext } from '..';
+import React from 'react';
 import Color from './Color'
 import { useColors } from "../hooks/colors_hook"
 
