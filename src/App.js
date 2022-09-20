@@ -10,51 +10,61 @@ import { v4 as uuidv4 } from 'uuid';
 
 function App() {
 
-  const [colors, setColors] = useState(colorData)
 
-  const removeColor = (id) => {
-      const newColors = colors.filter(color => color.id !== id);
-      setColors(newColors)
+  // **** С добавлением useContext этот код больше не нужен****
+  // const [colors, setColors] = useState(colorData)
+
+  // const removeColor = (id) => {
+  //     const newColors = colors.filter(color => color.id !== id);
+  //     setColors(newColors)
     
-  }
+  // }
   
-  const rateColor = (id, rating) => {
+  // const rateColor = (id, rating) => {
     
-    const newColors = colors.map(color => 
-      color.id === id
-      ? {...color, rating}
-      : color
-    )
-    setColors(newColors)
-  }
+  //   const newColors = colors.map(color => 
+  //     color.id === id
+  //     ? {...color, rating}
+  //     : color
+  //   )
+  //   setColors(newColors)
+  // }
 
-  const addNewColor = (title, color) => {
-    const newColors = [
-      ...colors,
-      {
-        id: uuidv4(),
-        rating: 0,
-        title,
-        color
-      }
-    ];
-    console.log(newColors);
-    setColors(newColors)
-  }
+  // const addNewColor = (title, color) => {
+  //   const newColors = [
+  //     ...colors,
+  //     {
+  //       id: uuidv4(),
+  //       rating: 0,
+  //       title,
+  //       color
+  //     }
+  //   ];
+  //   console.log(newColors);
+  //   setColors(newColors)
+  // }
 
   return (
-    <div className="App">
-      <AddColorForm onNewColor={addNewColor} />
+    // **** С добавлением useContext этот код больше не нужен****
+
+    // <div className="App">
+    //   <AddColorForm onNewColor={addNewColor} />
        
-      <ColorLIst colors = {colors} 
-        onRemoveColor = {
-          removeColor
-        }
-        onRateColor ={
-          rateColor
-        }
-      />
-    </div>
+    //   <ColorLIst colors = {colors} 
+    //     onRemoveColor = {
+    //       removeColor
+    //     }
+    //     onRateColor ={
+    //       rateColor
+    //     }
+    //   />
+    // </div>
+
+    <>
+      < AddColorForm />
+      < ColorLIst />
+    </>
+
   );
 }
 

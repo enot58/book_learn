@@ -8,9 +8,9 @@ const Star = ({ selected = false, onSelect = f => f }) => (
 
 const createArray = length => [...Array(length)];
 
-const StarRating = ({totalStars = 5, style = {}, onRate = f => f}) => {
+const StarRating = ({totalStars = 5, style = {},selectedStars = 0, onRate = f => f}) => {
 
-    const [selectedStars, setSelectedStars] = useState(0)
+    //const [selectedStars, setSelectedStars] = useState(0)
  
     return (
         <div style={{padding:"5px", ...style}}>
