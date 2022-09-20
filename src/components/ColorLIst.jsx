@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { ColorContext } from '..';
 import Color from './Color'
+import { useColors } from "../hooks/colors_hook"
 
-function ColorLIst({ colors = [], onRemoveColor = f => f, onRateColor = f => f }) {
+function ColorLIst(
+    // **** С добавлением useContext этот код больше не нужен****
+    // { colors = [], 
+    //     onRemoveColor = f => f,
+    //     onRateColor = f => f }
+    ) {
+
+    const { colors } = useColors();
 
     if (!colors.length) {
         return <div>Цвета не обнаружены</div>
@@ -10,7 +19,12 @@ function ColorLIst({ colors = [], onRemoveColor = f => f, onRateColor = f => f }
     return (
         <div>
             {
-                colors.map((color) => <Color key={color.id} {...color} onRemove={onRemoveColor} onRate ={onRateColor}/>)
+                colors.map((color) => 
+                <Color key={color.id} {...color} 
+                // **** С добавлением useContext этот код больше не нужен****
+                //onRemove={onRemoveColor} 
+                //onRate ={onRateColor}
+                />)
             }
         </div>
     )

@@ -1,8 +1,8 @@
 import React, {createContext} from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import ColorProvider from "./hooks/colors_hook"
 
-export const ColorContext = createContext();
 
 
 
@@ -10,9 +10,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     
-    <ColorContext.Provider value={{colors}}>
+    <ColorProvider>
       <App />
-    </ColorContext.Provider>
+    </ColorProvider>
 
   </React.StrictMode>
 );

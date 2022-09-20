@@ -1,7 +1,7 @@
 import React from 'react'
 import StarRating from './StarRating'
 import {FaTrash} from "react-icons/fa"
-
+import { useColors } from "../hooks/colors_hook"
 
 
 

@@ -1,9 +1,7 @@
 import {React, useState} from "react"
-import StarRating from "./components/StarRating";
-import colorData from "./color-data.json"
 import ColorLIst from "./components/ColorLIst";
 import AddColorForm from "./components/AddColorForm";
-import { v4 as uuidv4 } from 'uuid';
+
 
 
 // Состояние хранится на верху
