@@ -1,12 +1,31 @@
-import {React} from "react"
+import {React, useEffect, useState} from "react"
 import ColorLIst from "./components/ColorLIst";
 import AddColorForm from "./components/AddColorForm";
+import Checkbox from "./components/Checkbox";
 
 
 
 // Состояние хранится на верху
 
 function App() {
+
+  const [val, set] = useState("")
+  const [phrase, setPhrase] = useState("example");
+  
+  const createPhrase = () => {
+    setPhrase(val);
+    set("");
+  }
+
+  useEffect(() => {
+    console.log(`typing "${val}"`);
+  }, [val])
+
+  useEffect(() => {
+    console.log(`saved phase: "${phrase}"`);
+  }, [phrase])
+
+
 
 
   // **** С добавлением useContext этот код больше не нужен****
@@ -43,6 +62,19 @@ function App() {
   // }
 
   return (
+
+    <>
+      <label>Favorit phrase:</label>
+
+      <input 
+        value={val}
+        placeholder={phrase}
+        onChange={e => set(e.target.value)}
+      />
+
+      <button onClick={createPhrase}>Send</button>
+    </>
+
     // **** С добавлением useContext этот код больше не нужен****
 
     // <div className="App">
@@ -58,10 +90,16 @@ function App() {
     //   />
     // </div>
 
-    <>
+    //<>
+      /* < Checkbox />
       < AddColorForm />
-      < ColorLIst />
-    </>
+      < ColorLIst /> */
+
+
+    //</>
+
+
+
 
   );
 }
