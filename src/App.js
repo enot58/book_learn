@@ -2,6 +2,7 @@ import {React, useEffect, useState} from "react"
 import ColorLIst from "./components/ColorLIst";
 import AddColorForm from "./components/AddColorForm";
 import Checkbox from "./components/Checkbox";
+import GitHubUser from "./components/GitHubUser";
 
 
 
@@ -28,7 +29,7 @@ function App() {
     }
   }
 
-  
+
 
   // const [val, set] = useState("")
   // const [phrase, setPhrase] = useState("example");
@@ -114,11 +115,10 @@ function App() {
     // </div>
 
     <>
+      < GitHubUser login={"moonhighway"} />
       < Checkbox />
       < AddColorForm />
       < ColorLIst /> 
-
-
     </>
 
 
