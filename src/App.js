@@ -3,6 +3,7 @@ import ColorLIst from "./components/ColorLIst";
 import AddColorForm from "./components/AddColorForm";
 import Checkbox from "./components/Checkbox";
 import GitHubUser from "./components/GitHubUser";
+import TestArr from "./components/TestArr";
 
 
 
@@ -115,6 +116,7 @@ function App() {
     // </div>
 
     <>
+      {/* < TestArr /> */}
       < GitHubUser login={"moonhighway"} />
       < Checkbox />
       < AddColorForm />

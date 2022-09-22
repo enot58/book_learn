@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { useFetch } from '../hooks/useFetch'
+
 
 
 const loadJSON = (key) => {
@@ -10,13 +12,16 @@ const saveJSON = (key, data) => {
 }
 
 function GitHubUser({ login }) {
+    const {loading, data, error} = useFetch(
+        `https://api.github.com/users/${login}`
+    )
+    // Замена на хук useFetch
+    // const [data, setData] = useState(
+    //     loadJSON(`user:${login}`)
+    // );
 
-    const [data, setData] = useState(
-        loadJSON(`user:${login}`)
-    );
-
-    const [error, setError] = useState();
-    const [loading, setLoading] = useState(false);
+    // const [error, setError] = useState();
+    // const [loading, setLoading] = useState(false);
 
 
     // useEffect(() => {
@@ -34,15 +39,17 @@ function GitHubUser({ login }) {
 
     // }, [data]);
 
-    useEffect(() => {
-        if (!login) return;
-        setLoading(true)
-        fetch(`https://api.github.com/users/${login}`)
-            .then(response => response.json())
-            .then(setData)
-            .then(() => setLoading(false))
-            .catch(setError);
-    }, [login])
+
+    // Замена на хук useFetch
+    // useEffect(() => {
+    //     if (!login) return;
+    //     setLoading(true)
+    //     fetch(`https://api.github.com/users/${login}`)
+    //         .then(response => response.json())
+    //         .then(setData)
+    //         .then(() => setLoading(false))
+    //         .catch(setError);
+    // }, [login])
 
     if (loading) return <h1>loading....</h1>
 
@@ -66,5 +73,6 @@ function GitHubUser({ login }) {
         </div>
     );
 }
+
 
 export default GitHubUser;
